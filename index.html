@@ -1,22 +1,86 @@
-
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>مرحباً بك في Zoryn</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zoryn - Main</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
+    .navbar {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+    .navbar button {
+      background: linear-gradient(135deg, #a855f7, #3b82f6);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 10px #a855f7;
+    }
+    .content {
+      text-align: center;
+      margin-top: 100px;
+    }
+    h1 {
+      text-shadow: 2px 2px 5px #000;
+    }
+    #pageContent {
+      margin-top: 30px;
+      padding: 20px;
+    }
+  </style>
 </head>
 <body>
   <div class="navbar">
-    <a href="index.html">🏠 الرئيسية</a>
-    <a href="tasks.html">📋 المهام</a>
-    <a href="referral.html">🤝 الدعوات</a>
-    <a href="board.html">📊 الترتيب</a>
-    <a href="welcome.html">🔐 تسجيل الدخول</a>
+    <button onclick="loadPage('home')">HOME</button>
+    <button onclick="loadPage('tasks')">TASKS</button>
+    <button onclick="loadPage('referal')">REFERAL</button>
+    <button onclick="loadPage('board')">BOARD</button>
+    <button onclick="loadPage('connect')">CONNECT</button>
   </div>
-  <div class="page">
-    <h1>مرحباً بك في Zoryn</h1>
-    <p>ابدأ رحلتك في تجميع النقاط.</p>
+
+  <div class="content">
+    <h1 id="pageTitle">WELCOME TO ZORYN</h1>
+    <div id="pageContent">
+      <p>THE NEXT FRONTIER OF AI‑POWERED GAMING</p>
+    </div>
   </div>
+
+  <script>
+    function loadPage(page) {
+      const title = {
+        home: 'WELCOME TO ZORYN',
+        tasks: 'YOUR TASKS',
+        referal: 'INVITE FRIENDS',
+        board: 'LEADERBOARD',
+        connect: 'LOGIN TO CONTINUE'
+      }[page];
+
+      const content = {
+        home: '<p>THE NEXT FRONTIER OF AI‑POWERED GAMING</p>',
+        tasks: '<p>Complete daily offers like joining a Discord server or following on Twitter.</p>',
+        referal: '<p>Share your referral link to earn bonus points.</p>',
+        board: '<p>Top 100 users by points will be displayed here.</p>',
+        connect: '<button style="padding: 12px 25px; background: linear-gradient(135deg, #a855f7, #3b82f6); border-radius: 20px; color: white; font-weight: bold; box-shadow: 0 0 10px #a855f7;">Connect with Discord</button>'
+      }[page];
+
+      document.getElementById('pageTitle').innerText = title;
+      document.getElementById('pageContent').innerHTML = content;
+    }
+  </script>
 </body>
 </html>
